@@ -26,3 +26,6 @@ jobs:
       run: npm ci
     - name: Run Puppetteer and message
       run: npm run bot
+      env:
+        WEBHOOK_ID: ${{ secrets.WEBHOOK_ID }}
+        WEBHOOK_TOKEN: ${{ secrets.WEBHOOK_TOKEN }}
