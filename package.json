@@ -1,0 +1,23 @@
+{
+  "name": "canibuydumbbellsyet",
+  "description": "Github Actions bot to check gym website to see if I can buy the dumbbells yet",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nathakits/canibuydumbbellsyet.git"
+  },
+  "author": "Nathakit Sae-Tan",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/nathakits/canibuydumbbellsyet/issues"
+  },
+  "homepage": "https://github.com/nathakits/canibuydumbbellsyet#readme",
+  "dependencies": {
+    "discord.js": "^13.6.0",
+    "puppeteer": "^13.5.1"
+  }
+}
