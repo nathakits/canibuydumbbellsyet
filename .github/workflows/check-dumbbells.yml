@@ -1,0 +1,27 @@
+name: Check Dumbbells
+
+on:
+  schedule:
+    - cron: "00 03 * * *" # 10:00AM
+    - cron: "00 07 * * *" # 13:00PM
+    - cron: "00 12 * * *" # 19:00PM
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [14.x]
+        # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Scrape and Message - Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+      - run: npm ci
+      - name: Run Puppetteer and message
+      run: npm run bot
