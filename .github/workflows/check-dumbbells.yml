@@ -22,6 +22,7 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: ${{ matrix.node-version }}
+    - name: Install Node packages
       run: npm ci
     - name: Run Puppetteer and message
       run: npm run bot
