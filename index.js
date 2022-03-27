@@ -1,10 +1,19 @@
 const puppeteer = require("puppeteer");
 const { MessageEmbed, WebhookClient } = require("discord.js");
 const url = "https://eastwestfitness.com/product/hex-dumbbells-kg-per-pair/";
-const { webhookId, webhookToken } = require("./config.json");
-const webhookClient = new WebhookClient({
-  url: `https://discord.com/api/webhooks/${webhookId}/${webhookToken}`,
-});
+
+let webhookClient;
+
+if (process.env.NODE_ENV === "development") {
+  const { webhookId, webhookToken } = require("./config.json");
+  webhookClient = new WebhookClient({
+    url: `https://discord.com/api/webhooks/${webhookId}/${webhookToken}`,
+  });
+} else {
+  webhookClient = new WebhookClient({
+    url: `https://discord.com/api/webhooks/${process.env.WEBHOOK_ID}/${process.env.WEBHOOK_TOKEN}`,
+  });
+}
 
 (async () => {
   const browser = await puppeteer.launch();
